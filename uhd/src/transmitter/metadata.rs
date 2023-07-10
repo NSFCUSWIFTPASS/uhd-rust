@@ -22,18 +22,18 @@ impl TransmitMetadata {
     pub fn time_spec(&self) -> Option<TimeSpec> {
         if self.has_time_spec() {
             let mut time = TimeSpec::default();
-            let mut seconds_time_t: libc::time_t = Default::default();
+            let mut seconds_time_t: i64 = 0;
 
             check_status(unsafe {
                 uhd_sys::uhd_tx_metadata_time_spec(
                     self.handle,
-                    &mut seconds_time_t,
+                    ptr::addr_of_mut!(seconds_time_t), // Obtain a mutable raw pointer
                     &mut time.fraction,
                 )
             })
             .unwrap();
             // Convert seconds from time_t to i64
-            time.seconds = seconds_time_t.into();
+            time.seconds = seconds_time_t;
             Some(time)
         } else {
             None
