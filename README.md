@@ -4,13 +4,13 @@ Updated Rust bindings to the UHD (USRP Hardware Driver) library, which provides 
 ## Documentation
 Works with the UHD driver 4.3.0.0. Tested on a Raspberry Pi 4 (Raspbian 10 - buster) with Rust version 1.70.0 GNU C++ version 8.3.0.
 
-Verify the connected USRP is working with '''uhd_usrp_probe'''.
+Verify the connected USRP is working with ```uhd_usrp_probe```.
 
 In the main folder: 
-'''
+```
 cargo build
 cargo run --example receiver
-'''
+```
 
 ## Dependencies
 1.0.39 - Anyhow
