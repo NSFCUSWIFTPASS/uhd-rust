@@ -1,0 +1,26 @@
+[package]
+name = "uhd"
+version = "0.2.0"
+authors = ["Sam Crow <scrow@eng.ucsd.edu>"]
+edition = "2018"
+description = "Bindings to the UHD (USRP Hardware Driver) library, which provides support for Ettus Research / National Instruments Universal Software Radio Peripheral devices"
+repository = "https://github.com/samcrow/uhd-rust"
+license = "MIT OR Apache-2.0"
+keywords = ["sdr", "usrp", "radio"]
+categories = ["hardware-support"]
+
+
+[dependencies]
+num-complex = "0.4.0"
+libc = "0.2"
+thiserror = "1.0.24"
+anyhow = "1.0.39"
+
+[dependencies.uhd-sys]
+version = "0.1.2"
+path = "../uhd-sys"
+
+[dev-dependencies]
+tap = "1.0.1"
+log = "0.4.13"
+env_logger = "0.8.3"
